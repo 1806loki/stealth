@@ -2,6 +2,7 @@
 
 import CandidateDetailsCard from "@/components/Candidate-Details-Card";
 import CandidateScoreCard from "@/components/Candidate-Score-Card";
+import Footer from "@/components/Footer";
 import { Candidate } from "@/models/models";
 import { fetchCandidateData } from "@/utils/api";
 import { useEffect, useState } from "react";
@@ -25,7 +26,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className=" w-screen h-screen bg-[#F8F9FA]">
+    <div className=" flex flex-col w-screen h-screen bg-[#F8F9FA]">
       <div className="p-4">
         <div>
           <h1 className="text-gray-400 text-sm font-semibold">
@@ -41,6 +42,7 @@ const Home = () => {
         />
         <CandidateDetailsCard candidate={selectedCandidate} />
       </div>
+      <Footer />
     </div>
   );
 };

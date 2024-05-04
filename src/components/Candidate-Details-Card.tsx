@@ -34,7 +34,7 @@ const CandidateDetailsCard = ({ candidate }: Props) => {
                   className="rounded-lg"
                 />
                 <div className="flex flex-col ">
-                  <h1 className="font-bold font-sm  ">{candidate?.name}</h1>
+                  <h1 className="font-bold text-sm  ">{candidate?.name}</h1>
                   <h1 className="  text-gray-500 text-xs  ">
                     {candidate.email}
                   </h1>

@@ -1,7 +1,14 @@
 import { BarProps } from "@/models/models";
 
+ 
 const Bar: React.FC<BarProps> = ({ progress }) => {
-  let colorClass = progress >= 80 ? "green" : progress > 50 ? "yellow" : "red";
+  const getColorClass = (progress: number): string => {
+    if (progress >= 80) return "green";
+    if (progress >= 50) return "yellow";
+    return "red";
+  };
+
+  const colorClass = getColorClass(progress);
 
   return (
     <div className="w-full flex items-center gap-4">
@@ -11,15 +18,7 @@ const Bar: React.FC<BarProps> = ({ progress }) => {
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <h1
-        className={
-          progress >= 80
-            ? "text-[#41BF8A] text-sm font-semibold"
-            : progress >= 50
-            ? "text-yellow-500 text-sm font-semibold"
-            : "text-red-500 text-sm font-semibold"
-        }
-      >
+      <h1 className={`text-${colorClass}-900 text-sm font-semibold`}>
         {progress}/100
       </h1>
     </div>
