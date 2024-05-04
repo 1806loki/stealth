@@ -42,7 +42,9 @@ const Home = () => {
         />
         <CandidateDetailsCard candidate={selectedCandidate} />
       </div>
-      <Footer />
+    
+        <Footer />
+     
     </div>
   );
 };

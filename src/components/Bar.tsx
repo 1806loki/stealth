@@ -1,20 +1,19 @@
 import { BarProps } from "@/models/models";
 
- 
 const Bar: React.FC<BarProps> = ({ progress }) => {
-  const getColorClass = (progress: number): string => {
-    if (progress >= 80) return "green";
-    if (progress >= 50) return "yellow";
-    return "red";
-  };
+  let colorClass = "bg-red-500";
 
-  const colorClass = getColorClass(progress);
+  if (progress >= 80) {
+    colorClass = "bg-green-500";
+  } else if (progress > 50) {
+    colorClass = "bg-yellow-500";
+  }
 
   return (
-    <div className="w-full flex items-center gap-4">
-      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden flex items-center">
+    <div className="w-full flex items-center gap-2">
+      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden ">
         <div
-          className={`h-full bg-${colorClass}-500`}
+          className={"h-full " + colorClass}
           style={{ width: `${progress}%` }}
         ></div>
       </div>
